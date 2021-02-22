@@ -1,0 +1,8 @@
+*.pch
+*.ipch
+*.exe
+*.pdb
+*.obj
+*.tlog
+Secure Software Assignment 1/Debug/**
+*.db

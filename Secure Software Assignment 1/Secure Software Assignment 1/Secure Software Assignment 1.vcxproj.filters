@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\MCV">
+      <UniqueIdentifier>{95d4a325-6fd4-4d34-a624-9790e04b33cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MCV\sensors">
+      <UniqueIdentifier>{5d087983-4e22-4b29-ac44-6bf326d6a1aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Logger">
+      <UniqueIdentifier>{ca95ea7a-64cb-40fd-b67a-365d1fd10e44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MCV">
+      <UniqueIdentifier>{0cafa3a7-6dd0-4080-aaca-53a4dbcff91f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MCV\sensors">
+      <UniqueIdentifier>{6c4532b0-41dd-4e20-8d04-56d37a06f459}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logger">
+      <UniqueIdentifier>{478f0be7-5e0f-43e3-a4a6-9ac6426acd57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Authenticator">
+      <UniqueIdentifier>{6abbcf59-2761-43af-b129-a4322dfd5d5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Authenticator">
+      <UniqueIdentifier>{00cdffb3-c28b-48b9-80f4-57c7556568fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Authorization">
+      <UniqueIdentifier>{f6bef525-013f-49ed-b566-bc653b3ac8d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Authorization">
+      <UniqueIdentifier>{701fb921-0a03-4aaa-8d84-7466ed6bf7b0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Secure Software Assignment 1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Source Files\MCV</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files\MCV</Filter>
+    </ClCompile>
+    <ClCompile Include="Windspeed.cpp">
+      <Filter>Source Files\MCV\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="Tempeture.cpp">
+      <Filter>Source Files\MCV\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="SnowFall.cpp">
+      <Filter>Source Files\MCV\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="Lift.cpp">
+      <Filter>Source Files\MCV\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="Authenticator.cpp">
+      <Filter>Source Files\Authenticator</Filter>
+    </ClCompile>
+    <ClCompile Include="CredentialInfo.cpp">
+      <Filter>Source Files\Authenticator</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuView.cpp">
+      <Filter>Source Files\MCV</Filter>
+    </ClCompile>
+    <ClCompile Include="Permission.cpp">
+      <Filter>Source Files\Authorization</Filter>
+    </ClCompile>
+    <ClCompile Include="PrivilegeLvl.cpp">
+      <Filter>Source Files\Authorization</Filter>
+    </ClCompile>
+    <ClCompile Include="ProofID.cpp">
+      <Filter>Source Files\Authenticator</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Source Files\Authenticator</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Decorator.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header Files\MCV</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuView.h">
+      <Filter>Header Files\MCV</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Header Files\MCV</Filter>
+    </ClInclude>
+    <ClInclude Include="Windspeed.h">
+      <Filter>Header Files\MCV\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="Tempeture.h">
+      <Filter>Header Files\MCV\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="SnowFall.h">
+      <Filter>Header Files\MCV\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="Lift.h">
+      <Filter>Header Files\MCV\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="Authenticator.h">
+      <Filter>Header Files\Authenticator</Filter>
+    </ClInclude>
+    <ClInclude Include="ProofID.h">
+      <Filter>Header Files\Authenticator</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Header Files\Authenticator</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivilegeLvl.h">
+      <Filter>Header Files\Authorization</Filter>
+    </ClInclude>
+    <ClInclude Include="Permission.h">
+      <Filter>Header Files\Authorization</Filter>
+    </ClInclude>
+    <ClInclude Include="CredentialInfo.h">
+      <Filter>Header Files\Authenticator</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Header Files\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Decorator.h">
+      <Filter>Header Files\Logger</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
