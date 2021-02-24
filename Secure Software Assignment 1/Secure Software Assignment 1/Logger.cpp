@@ -1,5 +1,6 @@
 #include "Logger.h"
 
+
 void PasswordLogger::log(string str)
 {
 	ofstream myFile("encryptedPasswords", ofstream::app);
@@ -32,5 +33,29 @@ void PrivligeLogger::log(string str)
 
 void DataLogger::log(string str)
 {
-	//cout << str << "data";
+	ofstream myFile("DataFile.txt", ofstream::app);
+	{
+		if (myFile.fail())
+		{
+			cerr << "Couldny open file";
+		}
+		else
+		{
+			myFile << str;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+		myFile.close();
+	}
 };

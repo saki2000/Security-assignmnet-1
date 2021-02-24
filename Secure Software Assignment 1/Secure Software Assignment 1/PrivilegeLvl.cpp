@@ -29,7 +29,7 @@ PrivilegeLvl::PrivilegeLvl()								// constructor reading from encoded file
 		}
 	}
 	else
-		cout << "Couldnt open the file " << endl;
+		view.errorMessage("Couldnt open the file ");
 	myFile2.close();
 };
 

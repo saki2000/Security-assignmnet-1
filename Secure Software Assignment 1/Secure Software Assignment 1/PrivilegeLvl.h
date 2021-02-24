@@ -1,14 +1,14 @@
 #pragma once
 #include<map>
-#include<string>
+#include "MenuView.h"
 #include<fstream>
-#include<iostream>
 
 using namespace std;
 
 class PrivilegeLvl
 {
 private:
+	MenuView view;
 	map<string, string> privilegeMap; 
 
 public:

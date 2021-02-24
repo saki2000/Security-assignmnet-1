@@ -19,7 +19,7 @@ ProofID Authenticator::authenticatedUser(User& user)
 	string password;
 	string token;
 
-	cout << "Please eneter password: ";
+	view.message( "Please eneter password: ");
 	cin >> password;
 
 	if (credentials.userValidation(ID, password))
@@ -28,12 +28,12 @@ ProofID Authenticator::authenticatedUser(User& user)
 		proofID = ProofID(token);					// set token
 		user.setProofID(token);						// set token
 		user.setPrivilegeLvl();						// set privlige level
-		cout << "You are Loged in \n";
+		view.message( "You are Loged in ");
 		system("pause");
 	}
 	else
 	{
-		cout << "Invalid user ID or password! \n";
+		view.message("Invalid user ID or password! ");
 	}
 	return proofID;
 }

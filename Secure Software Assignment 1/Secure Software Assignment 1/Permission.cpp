@@ -3,9 +3,9 @@
 
 Permission::Permission()				// constructor creating holdin access levels
 {	
-			//option:		0.exit		1.speed	2.Lights	3.test  4.add user	5.stop	
-	mapOfAccess["staff"] = {FA,			FA,		FA,         NA,     NA,			FA};
-	mapOfAccess["admin"] = {FA,			FA,		FA,			FA,		FA,			FA};
+			//option:		0.exit	1.Loc	2.speed	3.Lights	4.test  5.add user 6.save  7.load	8.stop	
+	mapOfAccess["staff"] = {FA,		FA,  	FA,		FA,         NA,     NA,			FA,		FA,		FA};
+	mapOfAccess["admin"] = {FA,		FA,	    FA,		FA,			FA,		FA,			FA,		FA,		FA};
 }
 
 uint16_t Permission::ui16_permissionCheck(string privilegeLvl, uint16_t optionID) // returning permision level
@@ -18,9 +18,9 @@ uint16_t Permission::ui16_permissionCheck(string privilegeLvl, uint16_t optionID
 		if (optionID <= it->second.size())
 			return it->second[optionID];
 		else
-			cout << "Option " << optionID << " not availalble";
+			view.message("Option " + to_string(optionID) + " not availalble");
 	}
 	else
-		cout << "Level of Permission " << privilegeLvl << " unknown";
+		view.message("Level of Permission unknown");
 	return AccessType::NA;
 }

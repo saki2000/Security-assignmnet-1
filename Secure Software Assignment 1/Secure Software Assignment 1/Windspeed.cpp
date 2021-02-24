@@ -1,7 +1,7 @@
 #include "Windspeed.h"
 
 
-int16_t Windspeed::ui16_read()const
+int16_t Windspeed::i16_read()const
 {
 	return i16_speed;
 }

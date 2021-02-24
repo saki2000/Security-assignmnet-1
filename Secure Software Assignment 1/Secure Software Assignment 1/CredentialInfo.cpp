@@ -45,7 +45,7 @@ CredentialInfo::CredentialInfo()						// constructor reading from file and popul
 		}
 	}
 	else
-		cout << "Couldn't open the file " << endl;
+		view.errorMessage("Couldn't open the file " );
 	myFile.close();
 }
 

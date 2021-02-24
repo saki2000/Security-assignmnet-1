@@ -17,10 +17,13 @@ enum class MenuChoice           // enum for main menu
 enum class AdminMenuChoice          // enum for admin menu
 {
     LogOut,
+    Location,
     OverrideSpeed,
     ChangeLights,
     RunTest,
     AddUser,
+    SaveData,
+    LoadData,
     Emergency,
     SIZE
 };

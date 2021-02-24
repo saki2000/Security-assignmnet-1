@@ -6,7 +6,7 @@ string User::getId()
 }
 void User::enterId()
 {
-	cout << "Please enter your ID: ";
+	view.message( "Please enter your ID: ");
 	cin >> ID;
 }
 string User::getProofID()

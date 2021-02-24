@@ -11,6 +11,7 @@ public:
 	MenuChoice mainMenu();																//dispalying main menu
 	AdminMenuChoice adminMenu();														//dispalying staff menu
 	void message(string str);															//dispalying messages
+	void errorMessage(string str);														//displaying error messeges
 	void slopeInfo(const Model& model);													//dispalying slop current info
 	void header();																		//displaying header for sensors
 	void displayPredicted(tm tm, int16_t i16_tempAtTop, int16_t i16_tempAtBottom,

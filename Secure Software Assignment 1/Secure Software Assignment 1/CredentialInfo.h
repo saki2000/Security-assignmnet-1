@@ -1,14 +1,14 @@
 #pragma once
-#include<string>
 #include<map>
 #include<fstream>
-#include<iostream>
+#include "MenuView.h"
 
 using namespace std;
 
 class CredentialInfo
 {
 private:
+	MenuView view;
 	map <string, string> LoginPass;
 public:
 	CredentialInfo();

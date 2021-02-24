@@ -1,6 +1,11 @@
 #include "Model.h"
 #include "Decorator.h"
 
+Model::Model()
+{
+	this->name = "ZAKOPANE";
+}
+
 const string Model::getName() const
 {
 	return name;
@@ -11,7 +16,7 @@ void Model::setName(const string name)
 	this->name = name;
 }
 
-int16_t Model::it16_getTemperatureAtBottom() const
+int16_t Model::i16_getTemperatureAtBottom() const
 {
 	return tempetureAtBottom.i16_read();
 }
@@ -21,7 +26,7 @@ void Model::setTemperatureAtBottom(const int16_t int16_tempeture)
 	tempetureAtBottom.write(int16_tempeture);
 }
 
-int16_t Model::it16_getTemperatureAtTop() const
+int16_t Model::i16_getTemperatureAtTop() const
 {
 	return tempetureAtTop.i16_read();
 }
@@ -31,9 +36,9 @@ void Model::setTemperatureAtTop(const int16_t int16_tempeture)
 	tempetureAtTop.write(int16_tempeture);
 }
 
-int16_t Model::ui16_getWindspeed() const
+int16_t Model::i16_getWindspeed() const
 {
-	return windspeed.ui16_read();
+	return windspeed.i16_read();
 }
 
 void Model::setWindspeed(const int16_t ui16_windspeed)
@@ -57,7 +62,7 @@ DeviceState Model::getWindState()const
 	return windspeed.state();
 }
 
-int16_t Model::ui16_getSnowFall() const
+int16_t Model::i16_getSnowFall() const
 {
 	return snowFall.ui16_read();
 }
@@ -70,11 +75,11 @@ void Model::setSnowFall(int16_t ui16_snowFall)
 
 string Model::skingConditions()const
 {
-	if (ui16_getWindspeed() > 30)
+	if (i16_getWindspeed() > 30)
 		return   "TO WINDY TO SKI";
-	if (it16_getTemperatureAtTop() < -10)
+	if (i16_getTemperatureAtTop() < -10)
 		return   "GOOD CONDITIONS";
-	if (it16_getTemperatureAtTop() > 5)
+	if (i16_getTemperatureAtTop() > 5)
 		return   "SNOW IS MELTING BE CAREFUL";
 	else
 		return  "PERFECT";
@@ -121,15 +126,15 @@ void Model::liftLightsOFF()
 
 void Model::lifControl()
 {
-	if (ui16_getWindspeed() > 30)								// slowing down lift when strong lift
+	if (i16_getWindspeed() > 30)								// slowing down lift when strong lift
 		setLiftSpeed(ui16_getLiftSpeed() - 4);
 
-	if (ui16_getWindspeed() > 50 || ui16_getSnowFall() > 25)	// automatic stop when very hard wind
+	if (i16_getWindspeed() > 50 || i16_getSnowFall() > 25)	// automatic stop when very hard wind
 	{															// or in case heavy snow
 		lift.off();
 	}
 
-	if (ui16_getWindspeed() < 10 && ui16_getSnowFall() < 5)		// speedinf lift when perfect conditions
+	if (i16_getWindspeed() < 10 && i16_getSnowFall() < 5)		// speedinf lift when perfect conditions
 		setLiftSpeed(ui16_getLiftSpeed() + 2);
 }
 
@@ -151,7 +156,19 @@ void Model::logPrivlige(string name, string priv)
 
 void Model::logData()
 {
+	string data;
 	logger = make_unique <DataLogger>();
-	logger = make_unique <LoggerDecorator>(move(logger), FormatType::ENCRYPTEDPASS);
-	logger->log("xxx");
+	logger = make_unique <LoggerDecorator>(move(logger), FormatType::PLAIN);
+	tm tm = time();
+
+	data = to_string(tm.tm_mon + 1);						//saving month
+	data += " " + to_string(tm.tm_mday);					//saving day
+	data += "\n" + to_string(i16_getTemperatureAtBottom());	//temp at top
+	data += " " + to_string(i16_getTemperatureAtBottom());	//temp at bottom
+	data += " " + to_string(i16_getWindspeed());			//wind
+	data += " " + to_string(i16_getSnowFall()) + "\n";		//snowfall
+
+
+
+	logger->log(data);
 }

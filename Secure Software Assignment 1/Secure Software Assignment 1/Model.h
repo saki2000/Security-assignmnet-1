@@ -5,6 +5,7 @@
 #include "Lift.h"
 #include <string>
 #include "Logger.h"
+#include "Utilities.h"
 
 using namespace std;
 
@@ -21,18 +22,19 @@ private:
 
 public:
 	
+	Model();														//constructor
 	const string getName() const;									//get name
 	void setName(const string name);								//set name
-	int16_t it16_getTemperatureAtBottom() const;					//get temp at bottom
+	int16_t i16_getTemperatureAtBottom() const;						//get temp at bottom
 	void setTemperatureAtBottom(const int16_t i16_tempeture);		//set temp at bottom
-	int16_t it16_getTemperatureAtTop() const;						//get temp at top
+	int16_t i16_getTemperatureAtTop() const;						//get temp at top
 	void setTemperatureAtTop(const int16_t i16_tempeture);			//set temp at top
-	int16_t ui16_getWindspeed() const;								//get wind
+	int16_t i16_getWindspeed() const;								//get wind
 	void setWindspeed(const int16_t i16_windspeed);					//set wind
 	void retractingWindSensor();									//retracting wind sensor
 	void protractingWindSensor();							 		//protracting wind sensor
 	DeviceState getWindState()const;								//return state of windsensor
-	int16_t ui16_getSnowFall()const;								//get snow
+	int16_t i16_getSnowFall()const;									//get snow
 	void setSnowFall(int16_t i16_snowFall);							//set snow	
 	string skingConditions()const;									//return description of conditions on slope
 	DeviceState getLights()const;									//return light state

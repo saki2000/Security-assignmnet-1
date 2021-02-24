@@ -1,7 +1,7 @@
 #include "Controller.h"
 
 
-static string yesNo()						// fun dispalying yes/no option
+ string Controller::yesNo()						// fun dispalying yes/no option
 {
 	string str;
 	cin >> str;
@@ -11,7 +11,7 @@ static string yesNo()						// fun dispalying yes/no option
 	}
 	while (str != "Y" && str != "N")			//validating input
 	{
-		cout << " - Please choose only (Y)es or (N)o : ";
+		menuView.message (" - Please choose only (Y)es or (N)o : ");
 		cin >> str;
 		for (uint16_t i = 0; i < str.length(); i++)
 		{
@@ -21,7 +21,7 @@ static string yesNo()						// fun dispalying yes/no option
 	return str;
 };
 
-static bool menuExit()						// exit controler
+bool Controller::menuExit()						// exit controler
 {											// function making sure we want to quit
 	bool menu = true;
 	string answer;
@@ -73,10 +73,10 @@ void Controller::predictedWeather()
 	menuView.message("\n  --Predicted Weather for next 24h--  \n\n");
 	menuView.header();
 	tm tm = time();
-	int16_t i16_topTemp = model.it16_getTemperatureAtTop();
-	int16_t i16_bottomTemp = model.it16_getTemperatureAtBottom();
-	int16_t i16_wind = model.ui16_getWindspeed();
-	int16_t i16_snow = model.ui16_getSnowFall();
+	int16_t i16_topTemp = model.i16_getTemperatureAtTop();
+	int16_t i16_bottomTemp = model.i16_getTemperatureAtBottom();
+	int16_t i16_wind = model.i16_getWindspeed();
+	int16_t i16_snow = model.i16_getSnowFall();
 	
 	for (int16_t i = 0; i < 24; i++)                // 24 hour loop simulation
 	{
@@ -99,7 +99,6 @@ void Controller::predictedWeather()
 	}
 }
 
-// admin login menu
 void Controller::adminLogin()
 {
 	User user;
@@ -143,6 +142,17 @@ void Controller::adminMenu(const User& user, Permission& permission)
 		choice = menuView.adminMenu();
 		switch (choice)
 		{
+		case AdminMenuChoice::Location:								//changin name of location
+			ui16_optionID = (uint16_t)AdminMenuChoice::Location;
+			if (permission.ui16_permissionCheck(user.getPrivilegeLvl(), ui16_optionID))
+			{
+				changeLocationName();
+			}
+			else
+				menuView.message("Permission denied\nAdmin and Staff access only\n");
+			system("pause");
+			break;
+
 		case AdminMenuChoice::OverrideSpeed:						// manual speed adj
 			ui16_optionID = (uint16_t)AdminMenuChoice::OverrideSpeed;
 			if (permission.ui16_permissionCheck(user.getPrivilegeLvl(), ui16_optionID))
@@ -187,6 +197,29 @@ void Controller::adminMenu(const User& user, Permission& permission)
 			system("pause");
 			break;
 
+		case AdminMenuChoice::SaveData:								// saving data to file
+			ui16_optionID = (uint16_t)AdminMenuChoice::SaveData;
+			if (permission.ui16_permissionCheck(user.getPrivilegeLvl(), ui16_optionID))
+			{
+				model.logData();
+			}
+			else
+				menuView.message("Permission denied\nAdmin and Staff access only\n");
+			system("pause");
+			break;
+
+		case AdminMenuChoice::LoadData:								// loading data from file
+			ui16_optionID = (uint16_t)AdminMenuChoice::LoadData;
+			if (permission.ui16_permissionCheck(user.getPrivilegeLvl(), ui16_optionID))
+			{
+				loadData();
+			}
+			else
+				menuView.message("Permission denied\nAdmin and Staff access only\n");
+			system("pause");
+			break;
+
+
 		case AdminMenuChoice::Emergency:								// emergency stop
 			ui16_optionID = (uint16_t)AdminMenuChoice::Emergency;
 			if (permission.ui16_permissionCheck(user.getPrivilegeLvl(), ui16_optionID))
@@ -203,6 +236,23 @@ void Controller::adminMenu(const User& user, Permission& permission)
 			break;
 		}
 	}
+}
+
+void Controller::changeLocationName()
+{
+	string answer;
+	string name;
+
+	menuView.message("Would You like to set new location?(Y/N) ");
+	answer = yesNo();
+	if (answer == "Y")
+	{
+		menuView.message("Please enter new name: ");
+		cin >> name;
+		model.setName(name);
+		menuView.message("Name succesfully changed!");
+	}
+
 }
 
 void Controller::overrideSpeed()
@@ -299,18 +349,18 @@ void Controller::tempetureTest()
 	int16_t i16_reset;
 	int16_t i16_resetTwo;
 
-	i16_reset = model.it16_getTemperatureAtTop();
-	i16_resetTwo = model.it16_getTemperatureAtBottom();
-	i16_temp = model.it16_getTemperatureAtTop();
-	i16_tempTwo = model.it16_getTemperatureAtBottom();
+	i16_reset = model.i16_getTemperatureAtTop();
+	i16_resetTwo = model.i16_getTemperatureAtBottom();
+	i16_temp = model.i16_getTemperatureAtTop();
+	i16_tempTwo = model.i16_getTemperatureAtBottom();
 
 	menuView.tempTestHeader();
 	for (uint16_t i = 0; i < 10; i++)			// loop testing temp sensors
 	{
 		model.setTemperatureAtTop(checkAdd<int16_t>(i16_temp, (rand() % 5 - 3)));
 		model.setTemperatureAtBottom(checkAdd<int16_t>(i16_tempTwo, (rand() % 5 - 3)));
-		i16_temp = model.it16_getTemperatureAtTop();
-		i16_tempTwo = model.it16_getTemperatureAtBottom();
+		i16_temp = model.i16_getTemperatureAtTop();
+		i16_tempTwo = model.i16_getTemperatureAtBottom();
 		menuView.displayTempTest(i16_temp, i16_tempTwo);
 		this_thread::sleep_for(chrono::milliseconds(300));
 	}
@@ -330,14 +380,14 @@ void Controller::snowTest()
 	int16_t i16_temp;
 	int16_t i16_reset;
 
-	i16_temp = model.ui16_getSnowFall();
-	i16_reset = model.ui16_getSnowFall();
+	i16_temp = model.i16_getSnowFall();
+	i16_reset = model.i16_getSnowFall();
 
 	menuView.snowTestHeader();
 	for (uint16_t i = 0; i < 10; i++)			// loop testing temp sensors
 	{
 		model.setSnowFall(checkAdd<int16_t>(i16_temp, (rand() % 10 - 5)));
-		i16_temp = model.ui16_getSnowFall();
+		i16_temp = model.i16_getSnowFall();
 		menuView.displaySnowTest(i16_temp);
 		this_thread::sleep_for(chrono::milliseconds(300));
 	}
@@ -358,8 +408,8 @@ void Controller::windTest()
 	DeviceState tempState = DeviceState::off;
 	string result;
 
-	i16_temp = model.ui16_getWindspeed();
-	i16_reset = model.ui16_getWindspeed();
+	i16_temp = model.i16_getWindspeed();
+	i16_reset = model.i16_getWindspeed();
 	
 
 	menuView.windTestHeader();
@@ -368,7 +418,7 @@ void Controller::windTest()
 		i16_temp = checkAdd<int16_t>(i16_temp, (rand() % 30 - 15));			//randomazing data
 		i16_temp = i16_converToKnots(i16_temp);								//converting to knots
 		model.setWindspeed(i16_temp);	
-		i16_temp = model.ui16_getWindspeed();								//reading data
+		i16_temp = model.i16_getWindspeed();								//reading data
 		tempState = model.getWindState();
 		if (i16_temp < 60 && tempState == DeviceState::on)					//checking if automatic lif control works
 			result = "OK";
@@ -474,19 +524,6 @@ void Controller::addNewUser()
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 void Controller::emergencyStop()
 {
 	string answer;
@@ -524,4 +561,9 @@ int16_t Controller::i16_converToKnots(int16_t kmh)  // converting to knots
 		d_knots = d_knots + 1;
 
 	return (int16_t)d_knots;				// returning whole number
+}
+
+void Controller::loadData()
+{
+
 }
