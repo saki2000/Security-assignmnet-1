@@ -160,15 +160,16 @@ void Model::logData()
 	logger = make_unique <DataLogger>();
 	logger = make_unique <LoggerDecorator>(move(logger), FormatType::PLAIN);
 	tm tm = time();
+	system("cls");
 
 	data = to_string(tm.tm_mon + 1);						//saving month
 	data += " " + to_string(tm.tm_mday);					//saving day
+	data += " " + to_string(tm.tm_hour + 1);				//saving time
 	data += "\n" + to_string(i16_getTemperatureAtBottom());	//temp at top
 	data += " " + to_string(i16_getTemperatureAtBottom());	//temp at bottom
 	data += " " + to_string(i16_getWindspeed());			//wind
 	data += " " + to_string(i16_getSnowFall()) + "\n";		//snowfall
 
-
-
 	logger->log(data);
+
 }

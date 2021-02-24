@@ -48,13 +48,13 @@ void Controller::mainMenu()
 		switch (choice)
 		{
 		case MenuChoice::CurrentWeather:
-			system("cls");
+			menuView.clearScreen();
 			model.lifControl();
 			menuView.slopeInfo(model);
 			system("pause");
 			break;
 		case MenuChoice::NextDayWeather:
-			system("cls");
+			menuView.clearScreen();
 			Controller::predictedWeather();
 			system("pause");
 			break;
@@ -138,7 +138,7 @@ void Controller::adminMenu(const User& user, Permission& permission)
 	
 	while (logged)
 	{
-		system("cls");
+		menuView.clearScreen();
 		choice = menuView.adminMenu();
 		switch (choice)
 		{
@@ -202,6 +202,7 @@ void Controller::adminMenu(const User& user, Permission& permission)
 			if (permission.ui16_permissionCheck(user.getPrivilegeLvl(), ui16_optionID))
 			{
 				model.logData();
+				menuView.message("All Data saved! \n");
 			}
 			else
 				menuView.message("Permission denied\nAdmin and Staff access only\n");
@@ -261,16 +262,16 @@ void Controller::overrideSpeed()
 	uint16_t ui16_choice;
 	int16_t i16_speed = 0;
 
-	system("cls");
+	menuView.clearScreen();
 	menuView.message("Current lift speed: " + to_string(model.ui16_getLiftSpeed()) + "\n");
-	menuView.message("Would You like o adjust speed manually? (Y/N)\n");
+	menuView.message("Would You like o adjust speed manually? (Y/N)");
 	answer = yesNo();
 
 	if (answer == "Y")
 	{
-		menuView.message("Press:\n");
-		menuView.message("[1] To increase speed\n");
-		menuView.message("[2] To slow down\n");
+		menuView.message("\nPress:");
+		menuView.message("[1] To increase speed");
+		menuView.message("[2] To slow down");
 		validation (ui16_choice);
 		if (ui16_choice < 1 || ui16_choice > 2)			// making sure only correct input selected
 		{
@@ -329,7 +330,7 @@ void Controller::lightChange()
 
 void Controller::runTest()
 {
-	system("cls");
+	menuView.clearScreen();
 	menuView.message("SYSTEM TESTING IN PROGRESS\n\n");
 	menuView.message("Testing Tempeture Sensors\n\n");
 	tempetureTest();
@@ -483,7 +484,7 @@ void Controller::addNewUser()
 	bool correct = true;
 	uint16_t ui16_choice;
 
-	system("cls");
+	menuView.clearScreen();
 	menuView.message("Would You like to add new user? (Y/N):");
 	answer = yesNo();
 	if (answer == "Y")
@@ -537,7 +538,7 @@ void Controller::emergencyStop()
 		model.setLiftSpeed(0);				// set speed to 0
 		model.setLiftStateOFF();			// change state to off
 		model.liftLightsOFF();				// turn off lights
-		system("cls");
+		menuView.clearScreen();
 		menuView.message("EMERGENCY STOP EXECUTED\n\n");
 
 		message = "Lift speed: " + to_string(model.ui16_getLiftSpeed());
@@ -565,5 +566,58 @@ int16_t Controller::i16_converToKnots(int16_t kmh)  // converting to knots
 
 void Controller::loadData()
 {
+	string day, month, hour, topTemp, bottomTemp, wind, snow;
+	uint16_t choiceOne, choiceTwo;
+	bool found = false;
+	bool header = false;
 
+	menuView.clearScreen();
+	menuView.message("Please choose Month to load data\n");
+	menuView.displayMoths();
+	validation( choiceOne);
+	while (choiceOne < 1 || choiceOne > 12)					// picking month to diplay
+	{
+		menuView.message("Please choose correct month");
+		validation(choiceOne);
+	}
+
+	menuView.message("Please type date (1-31) to load data: ");
+	validation(choiceTwo);
+	while (choiceTwo < 1 || choiceTwo > 31)					// picking day to diplay
+	{
+		menuView.message("Please choose correct date");
+		validation(choiceTwo);
+	}
+
+	ifstream myFile("DataFile.txt", ifstream::in); // loading file
+
+	if (myFile)										// checking if its open
+	{
+		while (myFile >> month)						// assuming if we have month to read we have other info too
+		{
+			myFile >> day >> hour >> topTemp >> bottomTemp >> wind >> snow;
+
+			if (month == to_string(choiceOne))			// comparing months
+			{
+				if (day == to_string(choiceTwo))		//comparing dates withchoosen
+				{
+					if (!header)						// bool to display header only once if 
+					{									// more enries in th same day
+						menuView.foundDataHeader();
+						header = true;
+					}
+					found = true;
+					menuView.displayHistoricalData(month, day, hour, topTemp, bottomTemp, wind, snow);
+				}
+			}
+		}
+		if(!found)
+			menuView.message(" - No entries found - \n\n");
+	}
+	else
+		menuView.errorMessage("Couldnt open the file ");
+
+	myFile.close();
 }
+
+

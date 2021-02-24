@@ -3,7 +3,6 @@
 #include "Tempeture.h"
 #include "SnowFall.h"
 #include "Lift.h"
-#include <string>
 #include "Logger.h"
 #include "Utilities.h"
 
@@ -22,7 +21,7 @@ private:
 
 public:
 	
-	Model();														//constructor
+	Model();														//constructor -setting name
 	const string getName() const;									//get name
 	void setName(const string name);								//set name
 	int16_t i16_getTemperatureAtBottom() const;						//get temp at bottom

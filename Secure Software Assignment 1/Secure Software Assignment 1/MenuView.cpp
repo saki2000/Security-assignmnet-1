@@ -5,7 +5,7 @@ MenuChoice MenuView::mainMenu()															// Printing menu to the screen
 {
 	tm tm = time();
 	uint16_t ui16_input = uint16_t(MenuChoice::SIZE);									// make sure this int is initialize to invalid value
-	system("cls");																		//clear screen
+	clearScreen();																		//clear screen
 	cout << "DATE: " << put_time(&tm, "%A %d %B %G    TIME: %R") << endl << endl;		// printing time
 
 	cout << "    ---== WELCOME ==--- \n\n\n";
@@ -27,7 +27,8 @@ MenuChoice MenuView::mainMenu()															// Printing menu to the screen
 AdminMenuChoice MenuView::adminMenu()
 {
 	uint16_t ui16_input = uint16_t(AdminMenuChoice::SIZE);
-	system("cls");
+	clearScreen();
+	cout << "  *** ADMIN MENU ***" << endl << endl;
 	cout << "[" << (uint16_t)(AdminMenuChoice::Location) << "] Change Location Name \n";
 	cout << "[" << (uint16_t)(AdminMenuChoice::OverrideSpeed) << "] Override speed \n";
 	cout << "[" << (uint16_t)(AdminMenuChoice::ChangeLights) << "] Turn Lights ON/OFF \n";
@@ -134,3 +135,40 @@ void MenuView::dispalyLightTest(string result)
 	cout << "TEST RESULT: " << result << endl;
 }
 
+void MenuView::displayMoths()
+{		 
+	cout << "[1] Janduary " << endl;
+	cout << "[2] February " << endl;
+	cout << "[3] March " << endl;
+	cout << "[4] April " << endl;
+	cout << "[5] May " << endl;
+	cout << "[6] June " << endl;
+	cout << "[7] July " << endl;
+	cout << "[8] August " << endl;
+	cout << "[9] September " << endl;
+	cout << "[10] October " << endl;
+	cout << "[11] November " << endl;
+	cout << "[12] December " << endl << endl;
+	cout << " - Choice: ";
+}
+
+void MenuView::foundDataHeader()
+{
+	clearScreen();
+	cout << "\n\n -- DATA FOUND -- \n\n";
+}
+
+void MenuView::displayHistoricalData(string month, string day, string hour, string top,
+									 string bottom, string wind, string snow)
+{
+	cout << "DATE " << day << "/" << month << "      TIME:  " << hour <<":00" << endl << endl;
+	cout << "Tempeture recorded ad top:    " << top << " [C]" << endl;
+	cout << "Tempeture recorded ad bottom: " << top << " [C]" << endl;
+	cout << "Windspeed recorded:           " << wind << " [km/h]" << endl;
+	cout << "Snowfall recorded:            " << snow << " [mm/h]" << endl << endl << endl;
+}
+
+void MenuView::clearScreen()
+{
+	system("cls");
+}

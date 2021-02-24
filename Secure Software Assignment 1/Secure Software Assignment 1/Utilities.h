@@ -34,7 +34,7 @@ enum class authenticationLevel   // enumerator for authentication
     Admin
 };
 
-enum AccessType: int16_t               //// CHEEEEEEEEEEEEK DISSSSSSSSSSSSSS
+enum AccessType: int16_t               //enum for permissions
 {
     NA = 0x00,
     FA = 0x10
