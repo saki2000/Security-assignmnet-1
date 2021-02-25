@@ -72,7 +72,7 @@ void Controller::predictedWeather()
 {
 	menuView.message("\n  --Predicted Weather for next 24h--  \n\n");
 	menuView.header();
-	tm tm = time();
+	tm tm = MenuView::getTime();
 	int16_t i16_topTemp = model.i16_getTemperatureAtTop();
 	int16_t i16_bottomTemp = model.i16_getTemperatureAtBottom();
 	int16_t i16_wind = model.i16_getWindspeed();
@@ -233,9 +233,9 @@ void Controller::adminMenu(const User& user, Permission& permission)
 			break;
 
 		case AdminMenuChoice::LogOut:								//exiting admin menu
-			logged = false;
-			break;
-		}
+			logged = false;											// user out of scope will call
+			break;													//call destructor that sets empty stings	
+		}															//before deleting user
 	}
 }
 
@@ -619,5 +619,3 @@ void Controller::loadData()
 
 	myFile.close();
 }
-
-

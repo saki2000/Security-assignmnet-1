@@ -1,4 +1,5 @@
 #include "Lift.h"
+#include "MenuView.h"
 
 void Lift::on()
 {
@@ -43,7 +44,7 @@ void Lift::lightsOff()
 
 Lift::Lift()
 {
-	tm tm = time();
+	tm tm = MenuView::getTime();
 	state = DeviceState::on;
 	this->ui16_speed = 8;
 

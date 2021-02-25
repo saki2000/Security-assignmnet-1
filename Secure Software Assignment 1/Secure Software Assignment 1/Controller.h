@@ -8,6 +8,14 @@
 #include "Permission.h"
 #include <thread>
 
+
+
+enum class authenticationLevel   // enumerator for authentication
+{
+	Staff,
+	Admin
+};
+
 class Controller
 {
 private:

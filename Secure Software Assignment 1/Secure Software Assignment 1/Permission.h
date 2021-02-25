@@ -1,8 +1,13 @@
 #pragma once
 #include<map>
 #include<vector>
-#include"Utilities.h"
 #include "MenuView.h"
+
+enum AccessType : int16_t               //enum for permissions
+{
+	NA = 0x00,
+	FA = 0x10
+};
 
 using namespace std;
 

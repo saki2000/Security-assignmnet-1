@@ -3,7 +3,7 @@
 					
 MenuChoice MenuView::mainMenu()															// Printing menu to the screen
 {
-	tm tm = time();
+	tm tm = getTime();
 	uint16_t ui16_input = uint16_t(MenuChoice::SIZE);									// make sure this int is initialize to invalid value
 	clearScreen();																		//clear screen
 	cout << "DATE: " << put_time(&tm, "%A %d %B %G    TIME: %R") << endl << endl;		// printing time
@@ -171,4 +171,12 @@ void MenuView::displayHistoricalData(string month, string day, string hour, stri
 void MenuView::clearScreen()
 {
 	system("cls");
+}
+
+tm MenuView::getTime()						// tm for using time
+{
+	time_t current_time = time(0);
+	tm now;
+	localtime_s(&now, &current_time);
+	return now;
 }

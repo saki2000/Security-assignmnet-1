@@ -1,4 +1,5 @@
 #include "Logger.h"
+#include "MenuView.h"
 
 
 void PasswordLogger::log(string str)
@@ -6,8 +7,9 @@ void PasswordLogger::log(string str)
 	ofstream myFile("encryptedPasswords", ofstream::app);
 	{
 		if (myFile.fail())
-		{
-			cerr << "Couldny open file";
+		{	
+			MenuView view;
+			view.errorMessage("Couldny open file");
 		}
 		else
 			myFile << str << endl;
@@ -22,7 +24,8 @@ void PrivligeLogger::log(string str)
 	{
 		if (myFile.fail())
 		{
-			cerr << "Couldny open file";
+			MenuView view;
+			view.errorMessage("Couldny open file");
 		}
 		else
 			myFile << str << endl;
@@ -37,23 +40,13 @@ void DataLogger::log(string str)
 	{
 		if (myFile.fail())
 		{
-			cerr << "Couldny open file";
+			MenuView view;
+			view.errorMessage("Couldny open file");
 		}
 		else
 		{
 			myFile << str;
 		}
-
-
-
-
-
-
-
-
-
-
-
 
 
 		myFile.close();

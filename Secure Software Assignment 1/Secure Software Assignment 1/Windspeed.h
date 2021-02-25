@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <cstdint>
 #include "Utilities.h"
+#include "DeviceState.h"
 
 class Windspeed
 {

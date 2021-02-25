@@ -14,7 +14,7 @@ LoggerDecorator::LoggerDecorator(unique_ptr<Logger>logger, FormatType formatType
 
 string  LoggerDecorator::passEncryption(string toEncrypt)
 {
-	char key = 0b11011011;						// random bits to encrypt file
+	unsigned char key = 0b11011011;						// random bits to encrypt file
 	string output = toEncrypt;
 
 	for (uint16_t i = 0; i < toEncrypt.size(); i++)
@@ -49,5 +49,7 @@ string LoggerDecorator::formatMessage(string str)
 	case FormatType::ENCRYPTEDPRIV:
 		return privEncryption(str);
 		break;
+	default:
+		return "";
 	}
 }

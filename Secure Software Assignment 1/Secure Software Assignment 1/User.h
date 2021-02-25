@@ -11,6 +11,7 @@ private:
 	string proofId;
 	string privilegeLvl;
 public:
+	~User();					// destructor - set all members to empty string
 	string getId();
 	void enterId();
 	string getProofID();

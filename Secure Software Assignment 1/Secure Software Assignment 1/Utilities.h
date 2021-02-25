@@ -4,56 +4,6 @@
 #include <limits>
 
 using namespace std;
-
-enum class MenuChoice           // enum for main menu
-{
-	Quit,
-	CurrentWeather,
-	NextDayWeather,
-	AdminLogIn,
-    SIZE                // using this to in case of of adding or deleting options
-};
-
-enum class AdminMenuChoice          // enum for admin menu
-{
-    LogOut,
-    Location,
-    OverrideSpeed,
-    ChangeLights,
-    RunTest,
-    AddUser,
-    SaveData,
-    LoadData,
-    Emergency,
-    SIZE
-};
-
-enum class authenticationLevel   // enumerator for authentication
-{
-    Staff, 
-    Admin
-};
-
-enum AccessType: int16_t               //enum for permissions
-{
-    NA = 0x00,
-    FA = 0x10
-};
-
-enum class DeviceState            // enum for lift
-{
-    off, 
-    on 
-};
-
-static tm time()						// tm for using time
-{
-    time_t current_time = time(0);
-    tm now;
-    localtime_s(&now, &current_time);
-    return now;
-}
-
  
 // template to validate data
 template<typename T>

@@ -161,6 +161,7 @@
     <ClInclude Include="Controller.h" />
     <ClInclude Include="CredentialInfo.h" />
     <ClInclude Include="Decorator.h" />
+    <ClInclude Include="DeviceState.h" />
     <ClInclude Include="Lift.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="MenuView.h" />

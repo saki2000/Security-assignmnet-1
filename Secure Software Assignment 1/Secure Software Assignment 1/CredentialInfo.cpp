@@ -18,7 +18,7 @@ bool CredentialInfo::userValidation(string id, string pass)  // validating user
 
 static string decryptionFromFile(string str)   //  function decrypting from file
 {
-	char key = 0b11011011;						// random bits file was encode with
+	unsigned char key = 0b11011011;						// random bits file was encode with
 	string output = str;
 
 	for (uint16_t i = 0; i < str.size(); i++)		

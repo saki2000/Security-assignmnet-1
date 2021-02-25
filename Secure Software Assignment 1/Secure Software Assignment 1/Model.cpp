@@ -1,5 +1,6 @@
 #include "Model.h"
 #include "Decorator.h"
+#include "MenuView.h"
 
 Model::Model()
 {
@@ -159,7 +160,7 @@ void Model::logData()
 	string data;
 	logger = make_unique <DataLogger>();
 	logger = make_unique <LoggerDecorator>(move(logger), FormatType::PLAIN);
-	tm tm = time();
+	tm tm = MenuView::getTime();
 	system("cls");
 
 	data = to_string(tm.tm_mon + 1);						//saving month

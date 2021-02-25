@@ -27,3 +27,10 @@ void User::setPrivilegeLvl()
 	PrivilegeLvl privlige;
 	privilegeLvl = privlige.getPrivilegeLvl(ID);	// setting up privliges
 }
+
+User::~User()
+{
+	this->ID = "";
+	this->privilegeLvl = "";
+	this->proofId = "";
+}

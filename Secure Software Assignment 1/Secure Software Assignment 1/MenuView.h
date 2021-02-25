@@ -3,6 +3,29 @@
 #include "Model.h"
 #include <iomanip>
 
+enum class MenuChoice           // enum for main menu
+{
+	Quit,
+	CurrentWeather,
+	NextDayWeather,
+	AdminLogIn,
+	SIZE                // using this to in case of of adding or deleting options
+};
+
+enum class AdminMenuChoice          // enum for admin menu
+{
+	LogOut,
+	Location,
+	OverrideSpeed,
+	ChangeLights,
+	RunTest,
+	AddUser,
+	SaveData,
+	LoadData,
+	Emergency,
+	SIZE
+};
+
 
 class MenuView
 {
@@ -28,5 +51,7 @@ public:
 	void displayHistoricalData(string month, string day, string hour, string top,
 							   string bottom, string wind, string snow);			    //displaying historical data
 	void clearScreen();																	//clearing screen
-
+	static tm getTime();
 };
+
+

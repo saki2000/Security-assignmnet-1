@@ -1,5 +1,6 @@
 #pragma once
-#include"Utilities.h"
+#include "DeviceState.h"
+#include <cstdint>
 
 class Lift
 {
