@@ -5,11 +5,11 @@ int16_t SnowFall::ui16_read()const
 	return i16_snow;
 }
 
-void SnowFall::write(int16_t i16_snow)
+void SnowFall::write(int16_t i16_snow_)
 {
-	if (i16_snow < 0)
-		i16_snow = 0;
-	this->i16_snow = i16_snow;
+	if (i16_snow_ < 0)
+		i16_snow_ = 0;
+	this->i16_snow = i16_snow_;
 }
 
 SnowFall::SnowFall()

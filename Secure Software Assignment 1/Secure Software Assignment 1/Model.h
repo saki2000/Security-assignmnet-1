@@ -38,8 +38,8 @@ public:
 	string skingConditions()const;									//return description of conditions on slope
 	DeviceState getLights()const;									//return light state
 	DeviceState getLiftState()const;								//return lift state
-	uint16_t ui16_getLiftSpeed()const;								//return liftspeed
-	void setLiftSpeed(uint16_t ui16_speed);							//set lif speed
+	int16_t i16_getLiftSpeed()const;								//return liftspeed
+	void setLiftSpeed(int16_t i16_speed);							//set lif speed
 	void setLiftStateON();											//turn on lift
 	void setLiftStateOFF();											//switch off lift
 	void liftLightON();												//changing light status
@@ -48,6 +48,9 @@ public:
 	void logPassword(string name, string pass);						//saving password to file
 	void logPrivlige(string name, string priv);						//saving privliges to file
 	void logData();													//saving data to file
+
+	Model& operator=(const Model&) = delete;						// preventing compiler flag error
+	Model(const Model&) = delete;
 
 };
 

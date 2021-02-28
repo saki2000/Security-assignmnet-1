@@ -7,7 +7,7 @@ class ProofID
 private:
 	string proofID;
 public:
-	ProofID() {};
+	ProofID() = default;
 	ProofID(string);
 	string getProofID();
 	void setProofID(string);

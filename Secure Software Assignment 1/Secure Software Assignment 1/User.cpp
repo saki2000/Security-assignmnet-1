@@ -13,9 +13,9 @@ string User::getProofID()
 {
 	return proofId;
 }
-void User::setProofID(string proofId)
+void User::setProofID(string proofId_)
 {
-	this->proofId = proofId;
+	this->proofId = proofId_;
 }
 string User::getPrivilegeLvl()const
 {

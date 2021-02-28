@@ -8,9 +8,9 @@ int16_t TempetureAtTop::i16_read() const
 	return i16_temp;
 }
 
-void TempetureAtTop::write(int16_t i16_temp)
+void TempetureAtTop::write(int16_t i16_temp_)
 {
-	this->i16_temp = i16_temp;
+	this->i16_temp = i16_temp_;
 }
 
 int16_t TempetureAtBottom::i16_read() const
@@ -18,9 +18,9 @@ int16_t TempetureAtBottom::i16_read() const
 	return i16_temp;
 }
 
-void TempetureAtBottom::write(int16_t i16_temp)
+void TempetureAtBottom::write(int16_t i16_temp_)
 {
-	this->i16_temp = i16_temp;
+	this->i16_temp = i16_temp_;
 }
 
 TempetureAtTop::TempetureAtTop()

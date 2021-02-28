@@ -9,6 +9,7 @@ class Logger
 {
 public:
 	virtual void log(string str) = 0;
+	virtual ~Logger() = default;
 };
 
 class PasswordLogger : public Logger

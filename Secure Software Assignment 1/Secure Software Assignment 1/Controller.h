@@ -21,9 +21,10 @@ class Controller
 private:
 	Model model;
 	MenuView menuView;
-	AccessType accessType = NA;		//initialize acces to no access
+	AccessType accessType = AccessType::NA;		//initialize acces to no access
 
 public:
+	Controller() = default;
 	bool menuExit();											//exit menu bool
 	string yesNo();												//validating yes NO
 	void mainMenu();											//displaying main menu 
@@ -43,5 +44,7 @@ public:
 	void addNewUser();											//adding new staff member
 	void loadData();											//loading reading from file
 		
+	Controller(const Controller&) = delete;						//comapiler flag
+	Controller& operator=(const Controller&) = delete;			// preventing compiler flag error
 };
 

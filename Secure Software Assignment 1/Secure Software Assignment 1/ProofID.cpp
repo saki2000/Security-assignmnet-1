@@ -6,7 +6,7 @@ string ProofID::getProofID()
 {
 	return proofID;
 }
-void ProofID::setProofID(string proofID)
+void ProofID::setProofID(string proofID_)
 {
-	this->proofID = proofID;
+	this->proofID = proofID_;
 }

@@ -4,13 +4,13 @@
 void Lift::on()
 {
 	state = DeviceState::on;
-	this->ui16_speed = 8;
+	this->i16_speed = 8;
 }
 
 void Lift::off()
 {
 	state = DeviceState::off;
-	this->ui16_speed = 0;
+	this->i16_speed = 0;
 }
 
 DeviceState Lift::getState()const
@@ -23,14 +23,14 @@ DeviceState Lift::getLights()const
 	return lights;
 }
 
-void Lift::setSpeed(uint16_t ui16_speed)
+void Lift::setSpeed(int16_t i16_speed_)
 {
-	this->ui16_speed = ui16_speed;
+	this->i16_speed = i16_speed_;
 }
 
-uint16_t Lift::ui16_getSpeed()const
+int16_t Lift::i16_getSpeed()const
 {
-	return ui16_speed;
+	return i16_speed;
 }
 
 void Lift::lightsOn()
@@ -46,7 +46,7 @@ Lift::Lift()
 {
 	tm tm = MenuView::getTime();
 	state = DeviceState::on;
-	this->ui16_speed = 8;
+	this->i16_speed = 8;
 
 	if (tm.tm_hour > 15)					// checking if light should be on or off
 		this->lights = DeviceState::on;

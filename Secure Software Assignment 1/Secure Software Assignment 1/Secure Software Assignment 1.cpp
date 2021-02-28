@@ -7,7 +7,7 @@
 
 int main()
 {
-	srand((int16_t)time(nullptr));
+	srand((uint16_t)time(nullptr));
 	Controller controller;
 	controller.mainMenu();
 }

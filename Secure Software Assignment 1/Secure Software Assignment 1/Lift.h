@@ -7,7 +7,7 @@ class Lift
 private:
 	DeviceState state;
 	DeviceState lights;
-	uint16_t ui16_speed;
+	int16_t i16_speed;
 	
 public:
 	Lift();									// constructor setting peramiters when build
@@ -17,6 +17,6 @@ public:
 	void lightsOff();			 			// changing lights status
 	DeviceState getState()const;			// return status
 	DeviceState getLights()const;			// status of lights
-	void setSpeed(uint16_t ui16_speed);		// setting speed
-	uint16_t ui16_getSpeed()const;			// getter speed
+	void setSpeed(int16_t i16_speed);		// setting speed
+	int16_t i16_getSpeed()const;			// getter speed
 };

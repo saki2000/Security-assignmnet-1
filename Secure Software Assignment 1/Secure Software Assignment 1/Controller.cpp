@@ -1,25 +1,24 @@
 #include "Controller.h"
+#include <gsl.h>
 
 
  string Controller::yesNo()						// fun dispalying yes/no option
 {
 	string str;
 	cin >> str;
-	for (uint16_t i = 0; i < str.length(); i++)
-	{
-		str[i] = toupper(str[i]);
-	}
+	for (char& c : str) c = gsl::narrow_cast<char>(toupper(c));			// CONVER STR TO UPPERCASE, prevernts warning flag
+
 	while (str != "Y" && str != "N")			//validating input
 	{
 		menuView.message (" - Please choose only (Y)es or (N)o : ");
 		cin >> str;
-		for (uint16_t i = 0; i < str.length(); i++)
-		{
-			str[i] = toupper(str[i]);
-		}
+
+		for (char& c : str) c = gsl::narrow_cast<char>(toupper(c));
 	}
 	return str;
 };
+
+
 
 bool Controller::menuExit()						// exit controler
 {											// function making sure we want to quit
@@ -61,10 +60,12 @@ void Controller::mainMenu()
 		case MenuChoice::AdminLogIn:
 			adminLogin();                   
 			break;
-		case MenuChoice::Quit:
+		case MenuChoice::Quit: default:
 			menu = menuExit();
 			break;
 		}
+		
+
 	}
 }
 
@@ -232,7 +233,7 @@ void Controller::adminMenu(const User& user, Permission& permission)
 			system("pause");
 			break;
 
-		case AdminMenuChoice::LogOut:								//exiting admin menu
+		case AdminMenuChoice::LogOut: default:						//exiting admin menu
 			logged = false;											// user out of scope will call
 			break;													//call destructor that sets empty stings	
 		}															//before deleting user
@@ -259,11 +260,11 @@ void Controller::changeLocationName()
 void Controller::overrideSpeed()
 {
 	string answer;
-	uint16_t ui16_choice;
+	int16_t i16_choice;
 	int16_t i16_speed = 0;
 
 	menuView.clearScreen();
-	menuView.message("Current lift speed: " + to_string(model.ui16_getLiftSpeed()) + "\n");
+	menuView.message("Current lift speed: " + to_string(model.i16_getLiftSpeed()) + "\n");
 	menuView.message("Would You like o adjust speed manually? (Y/N)");
 	answer = yesNo();
 
@@ -272,28 +273,28 @@ void Controller::overrideSpeed()
 		menuView.message("\nPress:");
 		menuView.message("[1] To increase speed");
 		menuView.message("[2] To slow down");
-		validation (ui16_choice);
-		if (ui16_choice < 1 || ui16_choice > 2)			// making sure only correct input selected
+		validation (i16_choice);
+		if (i16_choice < 1 || i16_choice > 2)			// making sure only correct input selected
 		{
 			menuView.message("Try again: \n");
-			validation(ui16_choice);
+			validation(i16_choice);
 		}
-		if (ui16_choice == 1)														// using safe add
+		if (i16_choice == 1)														// using safe add
 		{																			// templete
-			model.setLiftSpeed(checkAdd(model.ui16_getLiftSpeed(), (uint16_t)2));	//to increse speer
+			model.setLiftSpeed(checkAdd(model.i16_getLiftSpeed(), (int16_t)2));	//to increse speer
 		}																			//by 2
-		if (ui16_choice == 2)
+		if (i16_choice == 2)
 		{
-			if (model.ui16_getLiftSpeed() < 4)
+			if (model.i16_getLiftSpeed() < 4)
 			{
 				menuView.message("Lift already at minium speed\n");
 			}
 			else
 			{
-				model.setLiftSpeed(checkSubstract(model.ui16_getLiftSpeed(), (uint16_t)2));
+				model.setLiftSpeed(checkSubstract(model.i16_getLiftSpeed(), (int16_t)2));
 			}
 		}
-		menuView.message("New lift speed: " + to_string(model.ui16_getLiftSpeed()) + "\n");
+		menuView.message("New lift speed: " + to_string(model.i16_getLiftSpeed()) + "\n");
 	}
 	else
 		return;
@@ -541,7 +542,7 @@ void Controller::emergencyStop()
 		menuView.clearScreen();
 		menuView.message("EMERGENCY STOP EXECUTED\n\n");
 
-		message = "Lift speed: " + to_string(model.ui16_getLiftSpeed());
+		message = "Lift speed: " + to_string(model.i16_getLiftSpeed());
 		message = message + "\nLift status: " + to_string((uint16_t)model.getLiftState());
 		message = message + "\nLights staus: " + to_string((uint16_t)model.getLiftState());
 		message = message + "\n\n";

@@ -12,9 +12,9 @@ const string Model::getName() const
 	return name;
 }
 
-void Model::setName(const string name)
+void Model::setName(const string name_)
 {
-	this->name = name;
+	this->name = name_;
 }
 
 int16_t Model::i16_getTemperatureAtBottom() const
@@ -95,14 +95,14 @@ DeviceState Model::getLiftState()const
 {
 	return lift.getState();
 }
-uint16_t Model::ui16_getLiftSpeed()const
+int16_t Model::i16_getLiftSpeed()const
 {
-	return lift.ui16_getSpeed();
+	return lift.i16_getSpeed();
 }
 
-void Model::setLiftSpeed(uint16_t ui16_speed)
+void Model::setLiftSpeed(int16_t i16_speed)
 {
-	lift.setSpeed(ui16_speed);
+	lift.setSpeed(i16_speed);
 }
 
 void Model::setLiftStateON()
@@ -128,31 +128,33 @@ void Model::liftLightsOFF()
 void Model::lifControl()
 {
 	if (i16_getWindspeed() > 30)								// slowing down lift when strong lift
-		setLiftSpeed(ui16_getLiftSpeed() - 4);
-
+	{
+		setLiftSpeed(i16_getLiftSpeed() - 4);
+	}
+		
 	if (i16_getWindspeed() > 50 || i16_getSnowFall() > 25)	// automatic stop when very hard wind
 	{															// or in case heavy snow
 		lift.off();
 	}
 
 	if (i16_getWindspeed() < 10 && i16_getSnowFall() < 5)		// speedinf lift when perfect conditions
-		setLiftSpeed(ui16_getLiftSpeed() + 2);
+		setLiftSpeed(i16_getLiftSpeed() + 2);
 }
 
-void Model::logPassword(string name, string pass)
+void Model::logPassword(string name_, string pass_)
 {
 	logger = make_unique <PasswordLogger>();
 	logger = make_unique <LoggerDecorator>(move(logger), FormatType::ENCRYPTEDPASS);
-	logger->log(name);
-	logger->log(pass);
+	logger->log(name_);
+	logger->log(pass_);
 }
 
-void Model::logPrivlige(string name, string priv)
+void Model::logPrivlige(string name_, string priv_)
 {
 	logger = make_unique <PrivligeLogger>();
 	logger = make_unique <LoggerDecorator>(move(logger), FormatType::ENCRYPTEDPRIV);
-	logger->log(name);
-	logger->log(priv);
+	logger->log(name_);
+	logger->log(priv_);
 }
 
 void Model::logData()

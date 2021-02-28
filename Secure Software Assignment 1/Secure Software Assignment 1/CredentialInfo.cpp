@@ -2,7 +2,6 @@
 
 bool CredentialInfo::userValidation(string id, string pass)  // validating user
 {
-	bool validUser = false;
 	map<string, string>::iterator it;				//map iterator
 
 	it = LoginPass.find(id);

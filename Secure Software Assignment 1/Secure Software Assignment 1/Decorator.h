@@ -21,4 +21,7 @@ private:
 public:
 	LoggerDecorator(unique_ptr<Logger>content, FormatType formatType);
 	virtual string formatMessage(string str);
+
+	LoggerDecorator(const LoggerDecorator&) = delete;						//comapiler flag
+	LoggerDecorator& operator=(const LoggerDecorator&) = delete;			// preventing compiler flag error
 };
