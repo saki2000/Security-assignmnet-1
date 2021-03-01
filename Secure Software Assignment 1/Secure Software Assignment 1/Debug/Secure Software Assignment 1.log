@@ -23,53 +23,97 @@ C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure S
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\PrivilegeLvl.cpp(10): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\PrivilegeLvl.cpp(8): message : index '' range checked by comparison on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\PrivilegeLvl.cpp(10): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Permission.cpp(21): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Permission.cpp(18): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Permission.cpp(21): message : feeds call on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Permission.cpp(19): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Permission.cpp(18): message : index '' range checked by comparison on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Permission.cpp(19): message : feeds call on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(142): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(141): message : index '' range checked by comparison on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(142): message : feeds call on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(141): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(141): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(140): message : index '' range checked by comparison on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(141): message : feeds call on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(136): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(136): message : index '' range checked by comparison on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(136): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(140): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(140): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(140): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(135): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(135): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(135): message : feeds call on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(132): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(130): message : index '' range checked by comparison on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Model.cpp(132): message : feeds call on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Decorator.cpp(22): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Decorator.cpp(20): message : index '' range checked by comparison on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Decorator.cpp(22): message : feeds call on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Decorator.cpp(34): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Decorator.cpp(32): message : index '' range checked by comparison on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Decorator.cpp(34): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Decorator.cpp(22): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Decorator.cpp(20): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Decorator.cpp(22): message : feeds call on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\CredentialInfo.cpp(25): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\CredentialInfo.cpp(23): message : index '' range checked by comparison on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\CredentialInfo.cpp(25): message : feeds call on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(97): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(82): message : index '' range checked by comparison on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(97): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(294): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(288): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(294): message : feeds call on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(290): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(288): message : index '' range checked by comparison on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(290): message : feeds call on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(363): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(360): message : index '' range checked by comparison on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(363): message : feeds call on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(438): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(232): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(232): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(229): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(229): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(220): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(220): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(217): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(217): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(209): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(209): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(206): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(206): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(197): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(197): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(373): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(370): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(373): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(400): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(397): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(400): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(194): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(194): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(440): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(437): message : index '' range checked by comparison on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(438): message : feeds call on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(422): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(418): message : index '' range checked by comparison on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(422): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(440): message : feeds call on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(398): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(397): message : index '' range checked by comparison on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(398): message : feeds call on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(391): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(389): message : index '' range checked by comparison on this line
-C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(391): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(186): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(186): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(183): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(183): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(175): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(175): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(438): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(437): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(438): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(172): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(172): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(164): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(164): message : feeds call on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(161): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(144): message : index '' range checked by comparison on this line
+C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Controller.cpp(161): message : feeds call on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Authenticator.cpp(9): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Authenticator.cpp(7): message : index '' range checked by comparison on this line
 C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Secure Software Assignment 1\Authenticator.cpp(9): message : feeds call on this line
-Authenticator.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   Secure Software Assignment 1.vcxproj -> C:\Users\saki2\Desktop\Security-assignmnet\Secure Software Assignment 1\Debug\Secure Software Assignment 1.exe
