@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "MenuView.h"
 #include "Controller.h"

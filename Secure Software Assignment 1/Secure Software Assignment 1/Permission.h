@@ -3,7 +3,7 @@
 #include<vector>
 #include "MenuView.h"
 
-enum AccessType : int16_t               //enum for permissions
+enum class AccessType : int16_t               //enum for permissions
 {
 	NA = 0x00,
 	FA = 0x10
@@ -15,7 +15,7 @@ class Permission
 {
 private:
 	MenuView view;
-	typedef vector<int16_t> ui16_options;
+	typedef vector<AccessType> ui16_options;
 	map<string, ui16_options> mapOfAccess;
 
 public:

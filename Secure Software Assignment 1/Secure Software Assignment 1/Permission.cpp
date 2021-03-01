@@ -3,9 +3,11 @@
 
 Permission::Permission()				// constructor creating holdin access levels
 {	
-			//option:		0.exit	1.Loc	2.speed	3.Lights	4.test  5.add user 6.save  7.load	8.stop	
-	mapOfAccess["staff"] = {FA,		FA,  	FA,		FA,         NA,     NA,			FA,		FA,		FA};
-	mapOfAccess["admin"] = {FA,		FA,	    FA,		FA,			FA,		FA,			FA,		FA,		FA};
+	
+			//option:		0.exit				1.Loc				2.speed				3.Lights				4.test				5.add user				 6.save				7.load				8.stop	
+	mapOfAccess["staff"] = {AccessType::FA,		AccessType::FA,  	AccessType::FA,		AccessType::FA,         AccessType::NA,     AccessType::NA,			AccessType::FA,		AccessType::FA,		AccessType::FA};
+	mapOfAccess["admin"] = {AccessType::FA,		AccessType::FA,	    AccessType::FA,		AccessType::FA,			AccessType::FA,		AccessType::FA,			AccessType::FA,		AccessType::FA,		AccessType::FA};
+	
 }
 
 uint16_t Permission::ui16_permissionCheck(string privilegeLvl, uint16_t optionID) // returning permision level
@@ -16,11 +18,12 @@ uint16_t Permission::ui16_permissionCheck(string privilegeLvl, uint16_t optionID
 	if (it != mapOfAccess.end())
 	{
 		if (optionID <= it->second.size())
-			return it->second[optionID];
+
+			return static_cast <uint16_t>(it->second[optionID]);		// static cast to mitigate warrnings
 		else
 			view.message("Option " + to_string(optionID) + " not availalble");
 	}
 	else
 		view.message("Level of Permission unknown");
-	return AccessType::NA;
+	return static_cast <uint16_t>(AccessType::NA);
 }
