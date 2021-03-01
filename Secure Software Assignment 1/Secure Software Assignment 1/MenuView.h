@@ -15,6 +15,7 @@ enum class MenuChoice           // enum for main menu
 enum class AdminMenuChoice          // enum for admin menu
 {
 	LogOut,
+	Status,
 	Location,
 	OverrideSpeed,
 	ChangeLights,
@@ -36,6 +37,7 @@ public:
 	void message(string str);															//dispalying messages
 	void errorMessage(string str);														//displaying error messeges
 	void slopeInfo(const Model& model);													//dispalying slop current info
+	void displayStatus(const Model& model);												//displaying status of device
 	void header();																		//displaying header for sensors
 	void displayPredicted(tm tm, int16_t i16_tempAtTop, int16_t i16_tempAtBottom,
 						  int16_t ui16_wind, int16_t ui16_snow);						//dispalying predicted values

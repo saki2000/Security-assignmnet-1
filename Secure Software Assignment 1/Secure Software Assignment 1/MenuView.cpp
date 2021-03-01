@@ -29,6 +29,7 @@ AdminMenuChoice MenuView::adminMenu()
 	uint16_t ui16_input = uint16_t(AdminMenuChoice::SIZE);
 	clearScreen();
 	cout << "  *** ADMIN MENU ***" << endl << endl;
+	cout << "[" << (uint16_t)(AdminMenuChoice::Status) << "] Display Device Status \n";
 	cout << "[" << (uint16_t)(AdminMenuChoice::Location) << "] Change Location Name \n";
 	cout << "[" << (uint16_t)(AdminMenuChoice::OverrideSpeed) << "] Override speed \n";
 	cout << "[" << (uint16_t)(AdminMenuChoice::ChangeLights) << "] Turn Lights ON/OFF \n";
@@ -56,6 +57,24 @@ void MenuView::message(string str)
 void MenuView::errorMessage(string str)
 {
 	cerr << str << endl;
+}
+
+void MenuView::displayStatus(const Model& model)
+{
+	system("cls");
+	cout << "*****************************" << endl;
+	cout << "*    -- DEVICE STATUS --    *" << endl;
+	cout << "*****************************" << endl << endl << endl;
+	cout << "Location: " << model.getName() << endl << endl;
+	cout << "Tempeture at top         : " << setw(3) << model.i16_getTemperatureAtTop() << " [C]" << endl;
+	cout << "Tempeture at bottom      : " << setw(3) << model.i16_getTemperatureAtBottom() << " [C]" << endl;
+	cout << "Windspeed                : " << setw(3) << model.i16_getWindspeed() << " [km/h]" << endl;
+	cout << "Rotator status (0/1)     : " << setw(3) << to_string((uint16_t)model.getWindState()) << endl;
+	cout << "Snowfall                 : " << setw(3) << model.i16_getSnowFall() << " [mm/h]" << endl ;
+	cout << "Lift speed               : " << setw(3) << model.i16_getLiftSpeed() << " [km/h]" << endl;
+	cout << "Lift Status (0/1)        : " << setw(3) << to_string((uint16_t)model.getLiftState()) << endl;
+	cout << "Lift Lights (0/1)        : " << setw(3) << to_string((uint16_t)model.getLights()) << endl;
+	cout << "Predicted ski conditions : " << model.skingConditions() << endl << endl;
 }
 
 void MenuView::header()

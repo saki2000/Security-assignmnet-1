@@ -26,6 +26,10 @@ DeviceState Lift::getLights()const
 void Lift::setSpeed(int16_t i16_speed_)
 {
 	this->i16_speed = i16_speed_;
+	if (i16_speed == 0)
+		state = DeviceState::off;
+	else
+		state = DeviceState::on;
 }
 
 int16_t Lift::i16_getSpeed()const

@@ -4,9 +4,9 @@
 Permission::Permission()				// constructor creating holdin access levels
 {	
 	
-			//option:		0.exit				1.Loc				2.speed				3.Lights				4.test				5.add user				 6.save				7.load				8.stop	
-	mapOfAccess["staff"] = {AccessType::FA,		AccessType::FA,  	AccessType::FA,		AccessType::FA,         AccessType::NA,     AccessType::NA,			AccessType::FA,		AccessType::FA,		AccessType::FA};
-	mapOfAccess["admin"] = {AccessType::FA,		AccessType::FA,	    AccessType::FA,		AccessType::FA,			AccessType::FA,		AccessType::FA,			AccessType::FA,		AccessType::FA,		AccessType::FA};
+			//option:		0.exit				1.Status			2.Loc				3.speed				4.Lights				5.test				6.add user				7.save				8.load				9.stop	
+	mapOfAccess["staff"] = {AccessType::FA,		AccessType::FA,		AccessType::FA,  	AccessType::FA,		AccessType::FA,         AccessType::NA,     AccessType::NA,			AccessType::FA,		AccessType::FA,		AccessType::FA};
+	mapOfAccess["admin"] = {AccessType::FA,		AccessType::FA,		AccessType::FA,	    AccessType::FA,		AccessType::FA,			AccessType::FA,		AccessType::FA,			AccessType::FA,		AccessType::FA,		AccessType::FA};
 	
 }
 

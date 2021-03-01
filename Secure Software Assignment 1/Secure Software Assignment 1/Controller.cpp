@@ -143,6 +143,17 @@ void Controller::adminMenu(const User& user, Permission& permission)
 		choice = menuView.adminMenu();
 		switch (choice)
 		{
+		case AdminMenuChoice::Status:								//display staus of all information
+			ui16_optionID = (uint16_t)AdminMenuChoice::Status;
+			if (permission.ui16_permissionCheck(user.getPrivilegeLvl(), ui16_optionID))
+			{
+				menuView.displayStatus(model);
+			}
+			else
+				menuView.message("Permission denied\nAdmin and Staff access only\n");
+			system("pause");
+			break;
+
 		case AdminMenuChoice::Location:								//changin name of location
 			ui16_optionID = (uint16_t)AdminMenuChoice::Location;
 			if (permission.ui16_permissionCheck(user.getPrivilegeLvl(), ui16_optionID))
@@ -239,6 +250,7 @@ void Controller::adminMenu(const User& user, Permission& permission)
 		}															//before deleting user
 	}
 }
+
 
 void Controller::changeLocationName()
 {
