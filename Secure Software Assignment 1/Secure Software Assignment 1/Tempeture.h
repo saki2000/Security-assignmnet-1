@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <stdlib.h>
+#include "Utilities.h"
 
 class Tempeture
 {

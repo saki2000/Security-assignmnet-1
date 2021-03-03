@@ -28,8 +28,8 @@ void User::setPrivilegeLvl()
 	privilegeLvl = privlige.getPrivilegeLvl(ID);	// setting up privliges
 }
 
-User::~User()
-{
+User::~User()					// destructor
+{								// SS#9
 	this->ID = "";
 	this->privilegeLvl = "";
 	this->proofId = "";

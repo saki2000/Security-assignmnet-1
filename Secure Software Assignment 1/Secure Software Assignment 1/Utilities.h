@@ -25,39 +25,36 @@ T validation(T& num)
     return num;
 };
 
-// template for checking over and underflow when adding
+// template to check for overflow                       //#SS3
 template<typename T>
-T checkAdd(T numOne, T numTwo)
+T intAddition( T i16t_a,  T i16t_b) 
 {
-    intmax_t sum;                                                    //  largest integral type supported by compailer
-    sum = static_cast <intmax_t>( numOne) + static_cast <intmax_t>( numTwo);
-    if (sum > numeric_limits<T>::max())                              // check for overflow
+   
+    if (((i16t_b > 0) && (i16t_a > (numeric_limits<T>::max() - i16t_b))) ||
+        ((i16t_b < 0) && (i16t_a < (numeric_limits<T>::min() - i16t_b))))
     {
-        cerr << "Sensor error";
+        cerr << "System error ";
+        return 0;
     }
-    if (sum < numeric_limits<T>::min())                              // checking for underflow
+    else 
     {
-        cerr << "Sensor error";
+        return i16t_a + i16t_b;
     }
-    return
-        static_cast <T>(sum);                                       // casting back to type T
 }
 
-// template for checking over and underflow when substracting
-template<typename T>
-T checkSubstract(T numOne, T numTwo)
-{
-    intmax_t sub;                                                    //  largest integral type supported by compailer
-    sub = static_cast <intmax_t>(numOne) - static_cast <intmax_t>(numTwo);
-    if (sub > numeric_limits<T>::max())                              // check for overflow
-    {
-        cerr << "System error";
-    }
-    if (sub < numeric_limits<T>::min())                              // checking for underflow
-    {
-        cerr << "System error";
-    }
-    return
-        static_cast <T>(sub);                                       // casting back to type T
-}
 
+// template to check for overflow
+template<typename T>
+T intSubstaction(T i16t_a, T i16t_b)                        //#SS3
+{
+    if ((i16t_b > 0 && i16t_a < numeric_limits<T>::min() + i16t_b) ||
+        (i16t_b < 0 && i16t_a > numeric_limits<T>::max() + i16t_b))
+    {
+        cerr << "System error";
+        return 0;
+    }
+    else
+    {
+        return  i16t_a - i16t_b;
+    }
+}

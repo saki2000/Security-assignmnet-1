@@ -12,7 +12,7 @@ LoggerDecorator::LoggerDecorator(unique_ptr<Logger>logger, FormatType formatType
 	this->formatType = formatType;
 }
 
-string  LoggerDecorator::passEncryption(string toEncrypt)
+string  LoggerDecorator::passEncryption(string toEncrypt)  //#SS8
 {
 	unsigned char key = 0b11011011;						// random bits to encrypt file
 	string output = toEncrypt;
@@ -24,7 +24,7 @@ string  LoggerDecorator::passEncryption(string toEncrypt)
 	return output;
 }
 
-string LoggerDecorator::privEncryption(string toEncrypt)
+string LoggerDecorator::privEncryption(string toEncrypt)   //#SS8
 {
 	char key = 0b00100100;						// random bits to encrypt file
 	string output = toEncrypt;

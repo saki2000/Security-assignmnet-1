@@ -40,7 +40,7 @@ int16_t Windspeed::i16_knotsToKmh(int16_t i16_knots)
 	d_kmh = i16_knots * 1.852;				// converting to km/h
 	i16_temp = (int16_t)d_kmh;					// casting to whole number
 	if ((d_kmh - i16_temp) > 0.4 )
-		d_kmh = d_kmh + 1;					// taking care of rounding error when casting to int 
+		d_kmh = d_kmh + 1 ;					// taking care of rounding error when casting to int 
 	return (int16_t)d_kmh;					
 }
 

@@ -2,53 +2,75 @@
 #include "MenuView.h"
 
 
-void PasswordLogger::log(string str)
+void PasswordLogger::log(string str)				//#SS1
 {
-	ofstream myFile("encryptedPasswords", ofstream::app);
+	try
 	{
-		if (myFile.fail())
-		{	
-			MenuView view;
-			view.errorMessage("Couldny open file");
+		ofstream myFile("encryptedPasswords", ofstream::app);
+		myFile.exceptions(ios::badbit | ios::failbit);
+
+		if (myFile.is_open())
+		{
+			if (!myFile.fail())
+			{
+				myFile << str << endl;
+			}
 		}
 		else
-			myFile << str << endl;
-
+			cerr << "Cant open file ";
 		myFile.close();
+	}
+	catch (exception e)
+	{
+		cerr << "File error " << e.what();
 	}
 }
 
-void PrivligeLogger::log(string str)
+void PrivligeLogger::log(string str)				//#SS1
 {
-	ofstream myFile("encryptedPrivileges", ofstream::app);
+	try
 	{
-		if (myFile.fail())
+		ofstream myFile("encryptedPrivileges", ofstream::app);
+		myFile.exceptions(ios::badbit | ios::failbit);
+
+		if (myFile.is_open())
 		{
-			MenuView view;
-			view.errorMessage("Couldny open file");
+			if (!myFile.fail())
+			{
+				myFile << str << endl;
+			}
 		}
 		else
-			myFile << str << endl;
-
+			cerr << "Cant open file  ";
 		myFile.close();
 	}
+	catch (exception e)
+	{
+		cerr << "File error " << e.what();
+	}
+
 };
 
-void DataLogger::log(string str)
+void DataLogger::log(string str)					//#SS1
 {
-	ofstream myFile("DataFile.txt", ofstream::app);
+	try
 	{
-		if (myFile.fail())
+		ofstream myFile("DataFile.txt", ofstream::app);
+		myFile.exceptions(ios::badbit | ios::failbit);
+
+		if (myFile.is_open())
 		{
-			MenuView view;
-			view.errorMessage("Couldny open file");
+			if (!myFile.fail())
+			{
+				myFile << str;
+			}
 		}
 		else
-		{
-			myFile << str;
-		}
-
-
+			cerr << "Cant open file";
 		myFile.close();
+	}
+	catch (exception e)
+	{
+		cerr << "File error " << e.what();
 	}
 };

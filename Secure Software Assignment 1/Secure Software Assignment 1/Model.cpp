@@ -129,7 +129,7 @@ void Model::lifControl()
 {
 	if (i16_getWindspeed() > 30)								// slowing down lift when strong lift
 	{
-		setLiftSpeed(i16_getLiftSpeed() - 4);
+		setLiftSpeed(intSubstaction<int16_t>(i16_getLiftSpeed() , (int16_t)2));
 	}
 		
 	if (i16_getWindspeed() > 50 || i16_getSnowFall() > 25)	// automatic stop when very hard wind
@@ -138,10 +138,10 @@ void Model::lifControl()
 	}
 
 	if (i16_getWindspeed() < 10 && i16_getSnowFall() < 5)		// speedinf lift when perfect conditions
-		setLiftSpeed(i16_getLiftSpeed() + 2);
+		setLiftSpeed(intAddition<int16_t>(i16_getLiftSpeed() ,(int16_t) 2));		//#SS4
 }
 
-void Model::logPassword(string name_, string pass_)
+void Model::logPassword(string name_, string pass_)				//#SS2
 {
 	logger = make_unique <PasswordLogger>();
 	logger = make_unique <LoggerDecorator>(move(logger), FormatType::ENCRYPTEDPASS);
@@ -149,7 +149,7 @@ void Model::logPassword(string name_, string pass_)
 	logger->log(pass_);
 }
 
-void Model::logPrivlige(string name_, string priv_)
+void Model::logPrivlige(string name_, string priv_)				//#SS2
 {
 	logger = make_unique <PrivligeLogger>();
 	logger = make_unique <LoggerDecorator>(move(logger), FormatType::ENCRYPTEDPRIV);
@@ -157,7 +157,7 @@ void Model::logPrivlige(string name_, string priv_)
 	logger->log(priv_);
 }
 
-void Model::logData()
+void Model::logData()										//#SS2
 {
 	string data;
 	logger = make_unique <DataLogger>();
@@ -168,7 +168,7 @@ void Model::logData()
 	data = to_string(tm.tm_mon + 1);						//saving month
 	data += " " + to_string(tm.tm_mday);					//saving day
 	data += " " + to_string(tm.tm_hour + 1);				//saving time
-	data += "\n" + to_string(i16_getTemperatureAtBottom());	//temp at top
+	data += "\n" + to_string(i16_getTemperatureAtTop());	//temp at top
 	data += " " + to_string(i16_getTemperatureAtBottom());	//temp at bottom
 	data += " " + to_string(i16_getWindspeed());			//wind
 	data += " " + to_string(i16_getSnowFall()) + "\n";		//snowfall

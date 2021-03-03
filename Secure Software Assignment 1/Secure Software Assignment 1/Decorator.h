@@ -12,7 +12,7 @@ enum class FormatType
 class LoggerDecorator : public Logger
 {
 private:
-	unique_ptr<Logger>content;
+	unique_ptr<Logger>content;			//#SS2
 	FormatType formatType;
 	void log(string str);
 	string  passEncryption(string toEncrypt);

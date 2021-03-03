@@ -17,7 +17,7 @@ private:
 	Lift lift;
 	SnowFall snowFall;
 	string name;
-	unique_ptr<Logger>logger;
+	unique_ptr<Logger>logger;		//#SS2
 
 public:
 	

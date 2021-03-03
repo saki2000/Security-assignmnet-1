@@ -31,21 +31,33 @@ CredentialInfo::CredentialInfo()						// constructor reading from file and popul
 {
 	string id;												// storing id's
 	string pass;											// storing passwords
-	ifstream myFile("EncryptedPasswords", ifstream::in);	// loading from the file
-	
-	if (myFile.is_open())
+
+	try
 	{
-		while (myFile >> id)
+		ifstream myFile("EncryptedPasswords", ifstream::in);	// loading from the file
+		myFile.exceptions(ios::badbit | ios::failbit);
+
+		if (myFile.is_open())
 		{
-			myFile >> pass;
-			id = decryptionFromFile(id);
-			pass = decryptionFromFile(pass);
-			LoginPass.insert(pair<string, string>(id, pass));		//populating map with data
+			if (!myFile.fail())												// #SS1
+			{
+				while (myFile.peek() != char_traits<char>::eof() && getline(myFile, id))			//reading data
+				{
+					getline(myFile,pass);
+					id = decryptionFromFile(id);
+					pass = decryptionFromFile(pass);
+					LoginPass.insert(pair<string, string>(id, pass));
+				}
+			}
 		}
+		else
+			view.errorMessage("File error");
 	}
-	else
-		view.errorMessage("Couldn't open the file " );
-	myFile.close();
+	catch (exception e)
+	{
+		cerr << "File error " << e.what();
+	}
 }
+
 
 

@@ -91,7 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>/Gs  /experimental:external /external:anglebrackets /external:W0 /wd5045 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/Gs  /experimental:external /external:anglebrackets /external:W0 /wd5045 /wd26495 %(AdditionalOptions)</AdditionalOptions>
       <StructMemberAlignment>1Byte</StructMemberAlignment>
       <ControlFlowGuard>Guard</ControlFlowGuard>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>

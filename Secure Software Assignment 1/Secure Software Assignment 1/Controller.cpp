@@ -88,13 +88,13 @@ void Controller::predictedWeather()
 			tm.tm_wday++;
 		}
 		menuView.displayPredicted(tm,i16_topTemp, i16_bottomTemp, i16_wind, i16_snow );		// passing data
-		
-		i16_topTemp = checkAdd<int16_t>(i16_topTemp, (rand() % 3 - 1));						//randomazing
-		i16_bottomTemp = checkAdd<int16_t>(i16_bottomTemp, (rand() % 3 - 1));				//
-		i16_wind = checkAdd<int16_t>(i16_wind, (rand() % 31 - 15));							//data
+																												//#SS4
+		i16_topTemp = intAddition<int16_t>(i16_topTemp, (rand() % 3 - 1));						//randomazing
+		i16_bottomTemp = intAddition<int16_t>(i16_bottomTemp, (rand() % 3 - 1));				//
+		i16_wind = intAddition<int16_t>(i16_wind, (rand() % 31 - 15));							//data
 		if (i16_wind < 0)																	//
 			i16_wind = 0;																	//making sure
-		i16_snow = checkAdd<int16_t>(i16_snow, (rand() % 6 - 3));							//no negative
+		i16_snow = intAddition<int16_t>(i16_snow, (rand() % 6 - 3));							//no negative
 		if (i16_snow < 0)																	//numbers generated
 			i16_snow = 0;
 	}
@@ -292,8 +292,8 @@ void Controller::overrideSpeed()
 			validation(i16_choice);
 		}
 		if (i16_choice == 1)														// using safe add
-		{																			// templete
-			model.setLiftSpeed(checkAdd(model.i16_getLiftSpeed(), (int16_t)2));	//to increse speer
+		{																			// templete				#SS4
+			model.setLiftSpeed(intAddition<int16_t>(model.i16_getLiftSpeed(), 2));		//to increse speer
 		}																			//by 2
 		if (i16_choice == 2)
 		{
@@ -303,7 +303,7 @@ void Controller::overrideSpeed()
 			}
 			else
 			{
-				model.setLiftSpeed(checkSubstract(model.i16_getLiftSpeed(), (int16_t)2));
+				model.setLiftSpeed(intSubstaction<int16_t>(model.i16_getLiftSpeed(), 2)); //#SS4
 			}
 		}
 		menuView.message("New lift speed: " + to_string(model.i16_getLiftSpeed()) + "\n");
@@ -371,8 +371,8 @@ void Controller::tempetureTest()
 	menuView.tempTestHeader();
 	for (uint16_t i = 0; i < 10; i++)			// loop testing temp sensors
 	{
-		model.setTemperatureAtTop(checkAdd<int16_t>(i16_temp, (rand() % 5 - 3)));
-		model.setTemperatureAtBottom(checkAdd<int16_t>(i16_tempTwo, (rand() % 5 - 3)));
+		model.setTemperatureAtTop(intAddition<int16_t>(i16_temp, (rand() % 5 - 3)));			//#SS4
+		model.setTemperatureAtBottom(intAddition<int16_t>(i16_tempTwo, (rand() % 5 - 3)));
 		i16_temp = model.i16_getTemperatureAtTop();
 		i16_tempTwo = model.i16_getTemperatureAtBottom();
 		menuView.displayTempTest(i16_temp, i16_tempTwo);
@@ -400,7 +400,7 @@ void Controller::snowTest()
 	menuView.snowTestHeader();
 	for (uint16_t i = 0; i < 10; i++)			// loop testing temp sensors
 	{
-		model.setSnowFall(checkAdd<int16_t>(i16_temp, (rand() % 10 - 5)));
+		model.setSnowFall(intAddition<int16_t>(i16_temp, (rand() % 10 - 5)));				//#SS4
 		i16_temp = model.i16_getSnowFall();
 		menuView.displaySnowTest(i16_temp);
 		this_thread::sleep_for(chrono::milliseconds(300));
@@ -429,8 +429,8 @@ void Controller::windTest()
 	menuView.windTestHeader();
 	for (uint16_t i = 0; i < 10; i++)										// loop testing temp sensors
 	{
-		i16_temp = checkAdd<int16_t>(i16_temp, (rand() % 30 - 15));			//randomazing data
-		i16_temp = i16_converToKnots(i16_temp);								//converting to knots
+		i16_temp = intAddition<int16_t>(i16_temp, (rand() % 30 - 15));			//randomazing data
+		i16_temp = i16_converToKnots(i16_temp);								//converting to knots        #SS4
 		model.setWindspeed(i16_temp);	
 		i16_temp = model.i16_getWindspeed();								//reading data
 		tempState = model.getWindState();
@@ -487,7 +487,7 @@ void Controller::lightsTest()
 		model.liftLightsOFF();
 }
 
-void Controller::addNewUser()
+void Controller::addNewUser()				//#SS5
 {
 	string name;
 	string passwordOne;
@@ -584,10 +584,11 @@ void Controller::loadData()
 	bool found = false;
 	bool header = false;
 
+
 	menuView.clearScreen();
 	menuView.message("Please choose Month to load data\n");
 	menuView.displayMoths();
-	validation( choiceOne);
+	validation(choiceOne);
 	while (choiceOne < 1 || choiceOne > 12)					// picking month to diplay
 	{
 		menuView.message("Please choose correct month");
@@ -600,35 +601,55 @@ void Controller::loadData()
 	{
 		menuView.message("Please choose correct date");
 		validation(choiceTwo);
-	}
+	}                        
 
-	ifstream myFile("DataFile.txt", ifstream::in); // loading file
-
-	if (myFile)										// checking if its open
+	try
 	{
-		while (myFile >> month)						// assuming if we have month to read we have other info too
-		{
-			myFile >> day >> hour >> topTemp >> bottomTemp >> wind >> snow;
+		ifstream myFile("DataFile.txt", ifstream::in); // loading file
+		myFile.exceptions(ios::badbit | ios::failbit);
+		string temp, tempData;
 
-			if (month == to_string(choiceOne))			// comparing months
+		if (myFile.is_open())									//#SS1
+		{
+			if (!myFile.fail())
 			{
-				if (day == to_string(choiceTwo))		//comparing dates withchoosen
+				while ( myFile.peek() != char_traits<char>::eof() && getline(myFile, temp))						// assuming if we have month to read we have other info too
 				{
-					if (!header)						// bool to display header only once if 
-					{									// more enries in th same day
-						menuView.foundDataHeader();
-						header = true;
+					getline(myFile, tempData);
+					istringstream dateSstream(temp);
+					istringstream dataSstream(tempData);
+					dateSstream >> month;
+					dateSstream >> day;
+					dateSstream >> hour;
+					dataSstream >> topTemp;
+					dataSstream >> bottomTemp;
+					dataSstream >> wind;
+					dataSstream >> snow;
+
+					if (month == to_string(choiceOne))			// comparing months
+					{
+						if (day == to_string(choiceTwo))		//comparing dates withchoosen
+						{
+							if (!header)						// bool to display header only once if 
+							{									// more enries in th same day
+								menuView.foundDataHeader();
+								header = true;
+							}
+							found = true;
+							menuView.displayHistoricalData(month, day, hour, topTemp, bottomTemp, wind, snow);
+						}
 					}
-					found = true;
-					menuView.displayHistoricalData(month, day, hour, topTemp, bottomTemp, wind, snow);
 				}
+				if (!found)
+					menuView.message(" - No entries found - \n\n");
 			}
 		}
-		if(!found)
-			menuView.message(" - No entries found - \n\n");
+		else
+			menuView.errorMessage("Couldnt open the file ");
 	}
-	else
-		menuView.errorMessage("Couldnt open the file ");
-
-	myFile.close();
+	catch (exception e)
+	{
+		cerr << "File error " << e.what();
+	}
 }
+

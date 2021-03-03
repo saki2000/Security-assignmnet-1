@@ -1,7 +1,6 @@
 #pragma once
 #include "MenuView.h"
 #include "Model.h"
-#include "Utilities.h"
 #include "Authenticator.h"
 #include "User.h"
 #include "ProofID.h"

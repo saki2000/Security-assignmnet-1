@@ -181,10 +181,10 @@ void MenuView::displayHistoricalData(string month, string day, string hour, stri
 									 string bottom, string wind, string snow)
 {
 	cout << "DATE " << day << "/" << month << "      TIME:  " << hour <<":00" << endl << endl;
-	cout << "Tempeture recorded ad top:    " << top << " [C]" << endl;
-	cout << "Tempeture recorded ad bottom: " << top << " [C]" << endl;
-	cout << "Windspeed recorded:           " << wind << " [km/h]" << endl;
-	cout << "Snowfall recorded:            " << snow << " [mm/h]" << endl << endl << endl;
+	cout << "Tempeture recorded ad top:    " << setw(4) << top << setw(8) << " [C]" << endl;
+	cout << "Tempeture recorded ad bottom: " << setw(4) << bottom << setw(8) << " [C]" << endl;
+	cout << "Windspeed recorded:           " << setw(4) << wind << setw(8) << " [km/h]" << endl;
+	cout << "Snowfall recorded:            " << setw(4) << snow << setw(8) << " [mm/h]" << endl << endl << endl;
 }
 
 void MenuView::clearScreen()
